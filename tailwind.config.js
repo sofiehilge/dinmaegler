@@ -9,6 +9,9 @@ export default {
         backgroundColor: "#E5E5E5",
         secondaryParagraph: "#7B7B7B",
         primaryParagraph: "#2A2C30"
+      }, 
+      fontFamily: {
+        'roboto': ['roboto']
       }
     },
   },

@@ -7,6 +7,7 @@ export default {
       colors: {
         primaryColor: "#162A41",
         backgroundColor: "#E5E5E5",
+        secondaryBgColor: "#F8F8FB",
         secondaryParagraph: "#7B7B7B",
         primaryParagraph: "#2A2C30"
       }, 

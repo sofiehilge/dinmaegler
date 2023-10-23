@@ -1,6 +1,8 @@
 import tw from "tailwind-styled-components";
 import { Link } from "react-router-dom";
 import logo from "../assets/g1430.png";
+import Logo from "../components/Logo";
+import Heading from "../components/Heading";
 
 const StyledNavigation = tw.nav`
 flex
@@ -9,9 +11,7 @@ px-xl
 py-4
 `;
 
-const StyledLogo = tw.img`
-w-74
-h-12.25`;
+
 
 const StyledSpan = tw.span`
 flex
@@ -21,13 +21,11 @@ gap-4
 const Navigation = () => {
   return (
     <StyledNavigation>
-      <Link to="/">
-        <img src={logo} alt="logo" />
-      </Link>
+     <Logo/>
 
       <StyledSpan>
         <Link to="/propertylist">
-          <p>Boliger til salg</p>
+          <Heading>Boliger til salg</Heading>
         </Link>
         <Link to="/agents">
           <p>Mæglere</p>

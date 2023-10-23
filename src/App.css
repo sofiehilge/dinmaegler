@@ -6,3 +6,15 @@
 @import "tailwindcss/components";
 
 @import "tailwindcss/utilities";
+
+#root {
+  font-family: "Roboto";
+}
+
+a {
+  all: unset;
+}
+
+a:hover {
+  cursor: grab;
+}

@@ -12,6 +12,15 @@ export default {
       }, 
       fontFamily: {
         'roboto': ['roboto']
+      },
+      padding:{
+        xl: "100px"
+
+      },
+      fontSize: {
+        'para01': ['18px', {
+          lineHeight: '30px'
+        }] 
       }
     },
   },

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import tw from "tailwind-styled-components";
+import { Link } from "react-router-dom";
 
 const StyledArticle = tw.main`
 w-[540px]
@@ -33,32 +34,34 @@ const PropertyListCard = () => {
   return (
     <>
       {allHomesList &&
-        allHomesList.map((item, index) => (
-          <StyledArticle key={index}>
-            {item.images && item.images.length > 0 && (
-              <StyledImg
-                src={item.images[0].url}
-                alt={`Ejendom ${item.adress1} `}
-              />
-            )}
-            <h2 title={item.adress1}>{item.adress1}</h2>
-            <div className="flex">
-              <p>{item.postalcode}</p>
-              <p>{item.city}</p>
-            </div>
-            <div className="flex">
-              <p>{item.type}</p>
-              <p>Ejerudgifter {item.cost}</p>
-            </div>
-            <div className="flex justify-between">
+        allHomesList.map((item) => (
+          <Link to={`../propertydetails/${item.id}`}>
+            <StyledArticle key={item.id}>
+              {item.images && item.images.length > 0 && (
+                <StyledImg
+                  src={item.images[0].url}
+                  alt={`Ejendom ${item.adress1} `}
+                />
+              )}
+              <h2 title={item.adress1}>{item.adress1}</h2>
               <div className="flex">
-                <p>{item.energylabel}</p>
-                <p>Værelser {item.rooms}</p>
-                <p>{item.livingspace}m2</p>
+                <p>{item.postalcode}</p>
+                <p>{item.city}</p>
               </div>
-              <p>kr. {item.price}</p>
-            </div>
-          </StyledArticle>
+              <div className="flex">
+                <p>{item.type}</p>
+                <p>Ejerudgifter {item.cost}</p>
+              </div>
+              <div className="flex justify-between">
+                <div className="flex">
+                  <p>{item.energylabel}</p>
+                  <p>Værelser {item.rooms}</p>
+                  <p>{item.livingspace}m2</p>
+                </div>
+                <p>kr. {item.price}</p>
+              </div>
+            </StyledArticle>
+          </Link>
         ))}
     </>
   );

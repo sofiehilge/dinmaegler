@@ -18,13 +18,12 @@ import ContactUs from "./pages/ContactUs.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 
-
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />} errorElement={<ErrorPage />}>
       <Route index element={<Home />} />
       <Route path="/propertylist" element={<PropertyList />} />
-      <Route path="/propertydetails" element={<PropertyDetails />} />
+      <Route path="/propertydetails/:id" element={<PropertyDetails />} />
       <Route path="/favorites" element={<Favorites />} />
       <Route path="/agents" element={<Agents />} />
       <Route path="/agentsdetails" element={<AgentsDetails />} />

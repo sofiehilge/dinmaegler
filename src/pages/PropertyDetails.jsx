@@ -9,7 +9,7 @@ import layers from "../assets/layers.png";
 import map from "../assets/map.png";
 import pin from "../assets/pin.png";
 import { AiFillPhone } from "react-icons/ai";
-import {SiMinutemailer} from "react-icons/si"
+import { SiMinutemailer } from "react-icons/si";
 
 const StyledArticle = tw.main`
 
@@ -77,7 +77,7 @@ const PropertyDetails = () => {
             </div>
             <p>kr. {singleHomeDetails.price}</p>
           </section>
-          <section class="grid grid-cols-3 gap-4">
+          <section className="grid grid-cols-3 gap-4">
             <div>
               <div className="flex">
                 <p>Sagsnummer:</p>
@@ -154,7 +154,7 @@ const PropertyDetails = () => {
                     <p>{singleHomeDetails.agent.phone}</p>
                   </div>
                   <div className="flex">
-                    <SiMinutemailer/>
+                    <SiMinutemailer />
                     <p>{singleHomeDetails.agent.email}</p>
                   </div>
                 </div>

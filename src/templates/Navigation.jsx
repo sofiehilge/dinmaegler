@@ -1,8 +1,7 @@
 import tw from "tailwind-styled-components";
 import { Link } from "react-router-dom";
-import logo from "../assets/g1430.png";
 import Logo from "../components/Logo";
-import Heading from "../components/Heading";
+
 
 const StyledNavigation = tw.nav`
 flex

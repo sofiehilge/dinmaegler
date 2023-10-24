@@ -1,5 +1,16 @@
+import Header from "../templates/Header";
+import Navigation from "../templates/Navigation";
+import Footer from "../templates/Footer";
+
 const Agents = () => {
-    return ( <><p>Agents</p></> );
-}
- 
+  return (
+    <>
+      <Header />
+      <Navigation />
+      <p>Agents</p>
+      <Footer />
+    </>
+  );
+};
+
 export default Agents;

@@ -11,8 +11,6 @@ px-xl
 py-4
 `;
 
-
-
 const StyledSpan = tw.span`
 flex
 gap-4
@@ -21,11 +19,11 @@ gap-4
 const Navigation = () => {
   return (
     <StyledNavigation>
-     <Logo/>
+      <Logo />
 
       <StyledSpan>
         <Link to="/propertylist">
-          <Heading>Boliger til salg</Heading>
+          <p>Boliger til salg</p>
         </Link>
         <Link to="/agents">
           <p>Mæglere</p>

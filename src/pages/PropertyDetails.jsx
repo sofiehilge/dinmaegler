@@ -15,6 +15,7 @@ const StyledArticle = tw.main`
 
 shadow-2xl
 justify-center
+px-xl
 `;
 
 const StyledImg = tw.img`
@@ -52,7 +53,6 @@ const PropertyDetails = () => {
     <>
       <Header />
       <Navigation />
-      <p>PropertyDetails</p>
       {singleHomeDetails && (
         <StyledArticle key={singleHomeDetails.id}>
           {singleHomeDetails.images && singleHomeDetails.images.length > 0 && (

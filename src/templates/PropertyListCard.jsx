@@ -6,7 +6,7 @@ const StyledArticle = tw.main`
 w-[540px]
 h-[446px]
 shadow-2xl
-
+px-xl
 `;
 
 const StyledImg = tw.img`

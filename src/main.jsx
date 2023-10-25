@@ -13,7 +13,7 @@ import PropertyList from "./pages/PropertyList.jsx";
 import PropertyDetails from "./pages/PropertyDetails.jsx";
 import Favorites from "./pages/Favorites.jsx";
 import Agents from "./pages/Agents.jsx";
-import AgentsDetails from "./pages/AgentsDetails.jsx";
+import AgentDetail from "./pages/AgentDetail.jsx";
 import ContactUs from "./pages/ContactUs.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
@@ -26,7 +26,7 @@ const router = createBrowserRouter(
       <Route path="/propertydetails/:id" element={<PropertyDetails />} />
       <Route path="/favorites" element={<Favorites />} />
       <Route path="/agents" element={<Agents />} />
-      <Route path="/agentsdetails" element={<AgentsDetails />} />
+      <Route path="/agentdetail/:id" element={<AgentDetail />} />
       <Route path="/contactus" element={<ContactUs />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />

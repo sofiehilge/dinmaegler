@@ -43,6 +43,7 @@ const PropertyListCard = () => {
                   alt={`Ejendom ${item.adress1} `}
                 />
               )}
+              {/* her indsættes hjerte icon! */}
               <h2 title={item.adress1}>{item.adress1}</h2>
               <div className="flex">
                 <p>{item.postalcode}</p>

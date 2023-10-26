@@ -1,6 +1,6 @@
 import tw from "tailwind-styled-components";
 import homebanner from "../assets/homebanner.png";
-import SearchCard from "./SearchCard";
+import SearchCard from "./SearchCard"
 
 
 const StyledOpacityDiv = tw.div`

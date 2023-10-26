@@ -1,6 +1,6 @@
 import tw from "tailwind-styled-components";
 import { useState, useEffect } from "react";
-import Button from "../components/Button"
+import Button from "../components/Button";
 const StyledSection = tw.section`
 absolute
 top-[453px]
@@ -44,7 +44,7 @@ const SearchCard = () => {
               className="w-[728px] h-[48px]"
               placeholder="Søg på fx. glaskeramisk komfur, bryggers, kælder eller lignende"
             />
-            <Button/>
+            <Button />
           </form>
         </StyledSection>
       )}

@@ -6,7 +6,7 @@ const StyledArticle = tw.main`
 w-[540px]
 h-[446px]
 shadow-2xl
-px-xl
+
 `;
 
 const StyledImg = tw.img`
@@ -14,7 +14,7 @@ w-[540px]
 h-[225px]
 `;
 
-const PropertyListCard = () => {
+const PropertyListCard = ({ selectedType}) => {
   const [allHomesList, setallHomesList] = useState();
   console.log(allHomesList);
   /* ------------------get all homes--------------- */
@@ -31,19 +31,27 @@ const PropertyListCard = () => {
       .then((response) => setallHomesList(response))
       .catch((err) => console.error(err));
   }, []);
+
+  if (!allHomesList) {
+    return <div>Loading...</div>;
+  }
+
+  const filteredHomeList = selectedType
+    ? allHomesList.filter((item) => item.type === selectedType)
+    : allHomesList;
   return (
     <>
-      {allHomesList &&
-        allHomesList.map((item) => (
-          <Link to={`../propertydetails/${item.id}`}>
-            <StyledArticle key={item.id}>
+      {filteredHomeList &&
+        filteredHomeList.map((item) => (
+          <Link key={item.id} to={`../propertydetails/${item.id}`}>
+            <StyledArticle>
               {item.images && item.images.length > 0 && (
                 <StyledImg
                   src={item.images[0].url}
                   alt={`Ejendom ${item.adress1} `}
                 />
               )}
-              {/* her indsættes hjerte icon! */}
+
               <h2 title={item.adress1}>{item.adress1}</h2>
               <div className="flex">
                 <p>{item.postalcode}</p>

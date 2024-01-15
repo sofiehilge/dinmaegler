@@ -34,8 +34,8 @@ const SearchCard = () => {
       {countHomes && (
         <StyledSection>
           <h2>
-            <span className="underline">Søg </span>
-            blandt {countHomes} boligertil salg i 74 butikker
+            <span className="underline">Søg</span>
+             blandt {countHomes} boligertil salg i 74 butikker
           </h2>
           <p>Hvad skal din næste bolig indeholde</p>
           <form action="input">

@@ -21,9 +21,7 @@ my-2
 
 const StyledRow = tw.div`
 flex
-flex-row`
-
-
+flex-row`;
 
 const PropertyList = () => {
   const [selectedType, setSelectedType] = useState();
@@ -36,10 +34,10 @@ const PropertyList = () => {
       <Navigation />
       <img src={boligertilsalg} className="w-full" alt="" />
       <StyledMain>
-<StyledRow>
-        <SearchHouseType onTypeChange={handleTypeChange} />
-<PriceRange/>
-</StyledRow>
+        <StyledRow>
+          <SearchHouseType onTypeChange={handleTypeChange} />
+          <PriceRange />
+        </StyledRow>
         <StyledGrid>
           <PropertyListCard selectedType={selectedType} />
         </StyledGrid>

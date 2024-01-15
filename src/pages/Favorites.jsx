@@ -7,7 +7,7 @@ const Favorites = () => {
     <>
       <Header />
       <Navigation />
-      <p>Favorites</p>
+      <input type="search" name="" id="" placeholder="Søg i favoritter"/>
       <Footer />
     </>
   );

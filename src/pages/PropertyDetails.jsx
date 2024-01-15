@@ -10,6 +10,7 @@ import map from "../assets/map.png";
 import pin from "../assets/pin.png";
 import { AiFillPhone } from "react-icons/ai";
 import { SiMinutemailer } from "react-icons/si";
+import useFavorites from "../hooks/useFavorites";
 
 const StyledArticle = tw.main`
 
@@ -34,6 +35,21 @@ h-[35.52px]`;
 const PropertyDetails = () => {
   const { id } = useParams();
   const [singleHomeDetails, setSingleHomeDetails] = useState();
+  const userData = {
+    confirmed: true,
+    blocked: false,
+    homes: [{/* ... */}],
+    username: "Carsten",
+    email: "carsten@mail.dk",
+    id: "64708c3cfcb201004868c762"
+  };
+
+  //Extracting user ID from user data
+  const{id:userId} = userData;
+const initialFavorites = [];
+const [favorites, addFavorite, removeFavorite] = useFavorites(
+  userId, []
+);
   console.log(singleHomeDetails);
   /* ------------------get all homes--------------- */
   useEffect(() => {
@@ -49,6 +65,18 @@ const PropertyDetails = () => {
       .then((response) => setSingleHomeDetails(response))
       .catch((err) => console.error(err));
   }, []);
+
+  const handleFavoriteClick = () => {
+    const {id} = singleHomeDetails;
+    //Check if the current home is already in favorites
+    const isFavorite = favorites.includes(id);
+    //Toggle the favorite status
+    if (isFavorite){
+      removeFavorite(id);
+    } else {
+      addFavorite(id);
+    }
+  }
   return (
     <>
       <Header />
@@ -73,7 +101,11 @@ const PropertyDetails = () => {
               <StyledIcon src={map} alt="map" />
               <StyledIcon src={layers} alt="layers" />
               <StyledIcon src={pin} alt="pin" />
-              <StyledIcon src={heart} alt="heart" />
+              <StyledIcon src={heart} alt="heart" onClick={handleFavoriteClick} style={{
+                filter: favorites && favorites.includes(singleHomeDetails.id)
+                ? "brightness(0.8)"
+                : "brightness(1)",
+              }} />
             </div>
             <p>kr. {singleHomeDetails.price}</p>
           </section>

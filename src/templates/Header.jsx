@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import tw from "tailwind-styled-components";
+import {useAuth} from "../context/AuthContext";
 
 const StyledNav = tw.nav`
 flex
@@ -16,6 +18,7 @@ gap-3
 `;
 
 const Header = () => {
+  const {isLoggedIn, setLoggedIn} = useAuth();
   return (
     <StyledNav>
       <StyledSpan>
@@ -23,7 +26,7 @@ const Header = () => {
         <p className="text-white">+45 7070 4000</p>
       </StyledSpan>
       <Link to="/login">
-        <p className="text-white">Log ind</p>
+        <p className="text-white">{isLoggedIn ? "Logget ind" : "Log ind"}</p>
       </Link>
     </StyledNav>
   );

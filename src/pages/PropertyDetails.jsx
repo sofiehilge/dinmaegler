@@ -11,6 +11,7 @@ import pin from "../assets/pin.png";
 import { AiFillPhone } from "react-icons/ai";
 import { SiMinutemailer } from "react-icons/si";
 import useFavorites from "../hooks/useFavorites";
+import { GoHeartFill, GoHeart } from "react-icons/go";
 
 const StyledArticle = tw.main`
 
@@ -38,18 +39,19 @@ const PropertyDetails = () => {
   const userData = {
     confirmed: true,
     blocked: false,
-    homes: [{/* ... */}],
+    homes: [
+      {
+        /* ... */
+      },
+    ],
     username: "Carsten",
     email: "carsten@mail.dk",
-    id: "64708c3cfcb201004868c762"
+    id: "64708c3cfcb201004868c762",
   };
 
   //Extracting user ID from user data
-  const{id:userId} = userData;
-const initialFavorites = [];
-const [favorites, addFavorite, removeFavorite] = useFavorites(
-  userId, []
-);
+  const { id: userId } = userData;
+  const [favorites, addFavorite, removeFavorite] = useFavorites(userId, []);
   console.log(singleHomeDetails);
   /* ------------------get all homes--------------- */
   useEffect(() => {
@@ -67,16 +69,16 @@ const [favorites, addFavorite, removeFavorite] = useFavorites(
   }, []);
 
   const handleFavoriteClick = () => {
-    const {id} = singleHomeDetails;
+    const { id } = singleHomeDetails;
     //Check if the current home is already in favorites
     const isFavorite = favorites.includes(id);
     //Toggle the favorite status
-    if (isFavorite){
+    if (isFavorite) {
       removeFavorite(id);
     } else {
       addFavorite(id);
     }
-  }
+  };
   return (
     <>
       <Header />
@@ -101,11 +103,20 @@ const [favorites, addFavorite, removeFavorite] = useFavorites(
               <StyledIcon src={map} alt="map" />
               <StyledIcon src={layers} alt="layers" />
               <StyledIcon src={pin} alt="pin" />
-              <StyledIcon src={heart} alt="heart" onClick={handleFavoriteClick} style={{
-                filter: favorites && favorites.includes(singleHomeDetails.id)
-                ? "brightness(0.8)"
-                : "brightness(1)",
-              }} />
+              <button onClick={handleFavoriteClick}>
+                {favorites.includes(singleHomeDetails.id) ? (<GoHeartFill/>):(<GoHeart/>)}
+              </button>
+              <StyledIcon
+                src={heart}
+                alt="heart"
+                onClick={handleFavoriteClick}
+                style={{
+                  filter:
+                    favorites && favorites.includes(singleHomeDetails.id)
+                      ? "brightness(0.8)"
+                      : "brightness(1)",
+                }}
+              />
             </div>
             <p>kr. {singleHomeDetails.price}</p>
           </section>

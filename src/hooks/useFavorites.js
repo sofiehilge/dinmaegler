@@ -13,10 +13,11 @@ const useFavorites = (userId, initialFavorites) => {
                         "Content-Type": "application/json", 
                         "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjNmZjgzMjYxNjY4M2M4ODNiMDQ5ZiIsImlhdCI6MTYzNTg0NDM2MywiZXhwIjoxNjM4NDM2MzYzfQ.w1VIG08a8IeHgLIEfgToxHIaJiA8tl2txjeQWq8H_gE",
                     },
+
                 });
 
                 if (!response.ok) {
-                    throw new Error('Failed to fetch favorites');
+                    throw new Error(`Failed to fetch favorites. Status: ${response.status}`);
                 }
                 const userData = await response.json();
                 setFavorites(userData.homes);
@@ -31,13 +32,13 @@ const useFavorites = (userId, initialFavorites) => {
         try{
             //add the homeId to the favorites array
             const updatedFavorites = [...favorites, homeId];
-
+            
             //Update favorites on the server
             const response = await fetch(`https://dinmaegler.onrender.com/users/${userId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": "Bearer yourAccessTokenHere",
+                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjNmZjgzMjYxNjY4M2M4ODNiMDQ5ZiIsImlhdCI6MTYzNTg0NDM2MywiZXhwIjoxNjM4NDM2MzYzfQ.w1VIG08a8IeHgLIEfgToxHIaJiA8tl2txjeQWq8H_gE",
                 },
                 body: JSON.stringify({homes: updatedFavorites}),
             });
@@ -46,7 +47,6 @@ const useFavorites = (userId, initialFavorites) => {
             if(!response.ok){
                 throw new Error("Failed to add favorite");
             }
-
             //Update local state
             setFavorites(updatedFavorites);
         } catch (error) {
@@ -64,7 +64,7 @@ const useFavorites = (userId, initialFavorites) => {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": "Bearer yourAccessTokenHere",
+                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjNmZjgzMjYxNjY4M2M4ODNiMDQ5ZiIsImlhdCI6MTYzNTg0NDM2MywiZXhwIjoxNjM4NDM2MzYzfQ.w1VIG08a8IeHgLIEfgToxHIaJiA8tl2txjeQWq8H_gE",
                 },
                 body: JSON.stringify({homes: updatedFavorites}),
             });
